@@ -14,7 +14,7 @@ export const onlyAllowInRule: Rule.RuleModule = {
   meta: {
     type: "problem",
     docs: {
-      description: "Restrict usage of class/className to specific directories"
+      description: "Restrict usage of class/className to specific directories",
     },
     schema: [
       {
@@ -23,16 +23,17 @@ export const onlyAllowInRule: Rule.RuleModule = {
           allow: {
             type: "array",
             items: { type: "string" },
-            description: "Glob patterns of directories where class/className is allowed"
-          }
+            description:
+              "Glob patterns of directories where class/className is allowed",
+          },
         },
-        additionalProperties: false
-      }
+        additionalProperties: false,
+      },
     ],
     messages: {
       disallow:
-        "Usage of `class` or `className` is not allowed outside allowed directories: {{allowList}}"
-    }
+        "Usage of `class` or `className` is not allowed outside allowed directories: {{allowList}}",
+    },
   },
 
   create(context): Rule.RuleListener {
@@ -43,7 +44,7 @@ export const onlyAllowInRule: Rule.RuleModule = {
     if (isAllowed(filename, allow)) return {};
 
     return {
-      "JSXAttribute"(node: Rule.Node) {
+      JSXAttribute(node: Rule.Node) {
         if (!isJSXAttribute(node)) return;
 
         const jsxName = node.name;
@@ -53,11 +54,11 @@ export const onlyAllowInRule: Rule.RuleModule = {
             context.report({
               node,
               messageId: "disallow",
-              data: { allowList: allow.join(", ") }
+              data: { allowList: allow.join(", ") },
             });
           }
         }
-      }
+      },
     };
-  }
+  },
 };

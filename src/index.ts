@@ -2,7 +2,7 @@ import type { Rule } from "eslint";
 import { onlyAllowInRule } from "./rules/only-allow-in";
 
 export const rules: Record<string, Rule.RuleModule> = {
-  "only-allow-in": onlyAllowInRule
+  "only-allow-in": onlyAllowInRule,
 };
 
 export const configs = {
@@ -10,8 +10,8 @@ export const configs = {
     rules: {
       "class-scope/only-allow-in": [
         "error",
-        { allow: ["components/**", "ui/**"] }
-      ]
-    }
-  }
+        { allow: ["components/**", "ui/**"] },
+      ],
+    },
+  },
 };
