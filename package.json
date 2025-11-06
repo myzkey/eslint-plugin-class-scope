@@ -4,8 +4,18 @@
   "description": "Restrict usage of class/className to specific directories (e.g., components/, ui/).",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "author": "myzkey",
+  "homepage": "https://www.npmjs.com/package/eslint-plugin-class-scope",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/myzkey/eslint-plugin-class-scope.git"
+  },
+  "bugs": {
+    "url": "https://github.com/myzkey/eslint-plugin-class-scope/issues"
+  },
   "scripts": {
     "build": "tsc",
+    "typecheck": "tsc --noEmit",
     "lint": "eslint . --ext .ts",
     "changeset": "changeset",
     "version": "changeset version",
